@@ -1,12 +1,14 @@
 WOOCOMMERCE-CUSTOM-ORDER-SQL-DATA
 =================================
 
+TO DO:
+I hope to fix the way the database is being saved(currently being input
+into an array) therefore when I want to add a field from the database
+into the data-array it requires another input array [look @
+$SQLQUERYFOUR[$i+3] (LINE 19) for more].
 
 
-
-======================================================================
-==========================THE ISSUE==================================
-======================================================================
+=======================THE PROBLEM==========================
 
 I am a web developer and I have a client (The Loft) that I've made a zencart site for (depricated), and a new site (Wordpress with Woocommerce).
 
@@ -16,13 +18,14 @@ We had an issue with the reporting system in Woocommerce.
 
 I found that the plug-ins for "Woocommerce custom order reports" were not working with my wordpress installation. 
 
+++++++++++++++++++++++THE SOLUTION++++++++++++++++++++++++++++++++++++++++
 Therefore I wrote this code to find out "WHAT PEOPLE BOUGHT" and "WHO BOUGHT TICKETS FOR WHAT SHOW".
 
 This required searching for hours on finding the tables that woocommerce sotres order data in then writing PHP and SQL code to join two tables and grab the information we needed.
 
-======================================================================
+
 ==========================THE DATA===================================
-======================================================================
+
 
 WOOCOMMERCE stores data in four tables:
 To be clear, in WooCommerce 2.x, orders are stored in the 
@@ -46,9 +49,9 @@ This tells us that the relationship (key) between wp_postmeta and p_woocommerce_
 Meaning "post_id" in "wp_postmeta" is the same as "order_id" in "wp_woocommerce_order_items".
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-=========================================================================
+
 =========================THE OUTPUT======================================
-=========================================================================
+
 
 The fields that we grabbed from the data-array and created variables for, are as follows:
 post_id
